@@ -1,0 +1,165 @@
+/* Mushak Labs — warm premium dark theme. Zero external requests: system fonts, local assets only. */
+
+:root {
+  --bg: #181818;
+  --bg-soft: #202020;
+  --gold: #e8b84a;
+  --gold-bright: #f7d66d;
+  --gold-dim: rgba(232, 184, 74, 0.16);
+  --cream: #f5efe2;
+  --muted: #a89e8c;
+  --line: rgba(232, 184, 74, 0.14);
+  --radius: 18px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--cream);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+               "Segoe UI", Inter, Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+}
+
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+.wrap.narrow { max-width: 720px; }
+.center { text-align: center; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(24, 24, 24, 0.82);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.nav-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  height: 64px;
+}
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--cream); }
+.brand img { display: block; border-radius: 6px; }
+.brand span { font-weight: 650; letter-spacing: 0.04em; font-size: 1.02rem; }
+.nav-links { display: flex; gap: 28px; }
+.nav-links a {
+  color: var(--muted); text-decoration: none; font-size: 0.95rem;
+  transition: color 0.2s ease;
+}
+.nav-links a:hover { color: var(--gold-bright); }
+
+/* ---------- Hero ---------- */
+.hero {
+  text-align: center;
+  padding: 96px 0 88px;
+  background:
+    radial-gradient(720px 380px at 50% -60px, rgba(232, 184, 74, 0.10), transparent 70%),
+    var(--bg);
+}
+.hero-logo {
+  max-width: 600px; width: 88%; height: auto; display: block; margin: 0 auto;
+  animation: rise 0.9s ease both;
+}
+.tagline {
+  margin-top: 30px; font-size: 1.35rem; color: var(--cream);
+  font-weight: 450; letter-spacing: 0.01em;
+  animation: rise 0.9s 0.12s ease both;
+}
+.cta-row {
+  margin-top: 36px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;
+  animation: rise 0.9s 0.24s ease both;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block; text-decoration: none; font-weight: 600; font-size: 1rem;
+  padding: 13px 30px; border-radius: 999px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+.btn-gold {
+  color: #1c1503;
+  background: linear-gradient(180deg, var(--gold-bright), var(--gold));
+  box-shadow: 0 6px 24px rgba(232, 184, 74, 0.28);
+}
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(232, 184, 74, 0.38); }
+.btn-ghost {
+  color: var(--cream); border: 1px solid rgba(245, 239, 226, 0.28);
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-bright); transform: translateY(-2px); }
+.btn-large { font-size: 1.12rem; padding: 16px 40px; }
+
+/* ---------- Sections ---------- */
+.section { padding: 84px 0; }
+.eyebrow {
+  color: var(--gold); font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.22em; text-transform: uppercase; margin-bottom: 12px;
+}
+.section h2 { font-size: 2rem; letter-spacing: -0.01em; margin-bottom: 10px; }
+.sub { color: var(--muted); max-width: 640px; }
+.center .sub { margin-left: auto; margin-right: auto; }
+
+/* ---------- App cards ---------- */
+.cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  margin-top: 40px;
+}
+.card {
+  background: var(--bg-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(232, 184, 74, 0.42);
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.45);
+}
+.card .platform {
+  font-size: 0.76rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+}
+.card h3 { font-size: 1.35rem; margin-bottom: 10px; letter-spacing: -0.01em; }
+.card p { color: var(--muted); font-size: 0.96rem; }
+.card .store-note {
+  margin-top: 18px; padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  color: var(--cream); font-size: 0.88rem; font-weight: 600;
+}
+.more-note { margin-top: 28px; color: var(--muted); font-size: 0.95rem; }
+
+/* ---------- About / contact ---------- */
+#about .wrap.narrow p + p { margin-top: 18px; }
+#about .wrap.narrow p { color: var(--muted); font-size: 1.06rem; }
+#about .wrap.narrow h2 { margin-bottom: 18px; }
+#contact .btn-large { margin-top: 30px; }
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding: 30px 0 36px; margin-top: 20px;
+}
+.footer-inner p { color: var(--muted); font-size: 0.88rem; text-align: center; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .cards { grid-template-columns: 1fr; }
+  .hero { padding: 72px 0 64px; }
+  .tagline { font-size: 1.18rem; }
+  .section { padding: 64px 0; }
+  .section h2 { font-size: 1.65rem; }
+  .nav-links { gap: 18px; }
+}
